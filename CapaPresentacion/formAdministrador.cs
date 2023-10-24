@@ -7,8 +7,6 @@ using MantenedorProducto;
 
 namespace CapaPresentacion
 {
-    //COMENTARIO DE PRUEBA
-
     public partial class formAdministrador : Form
     {
         public formAdministrador()

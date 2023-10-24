@@ -47,6 +47,9 @@ namespace CapaLogica
             return datUser.Instancia.ListarRoles();
         }
         public bool validarEstructuraCorreo(string correo) => datUser.Instancia.validarEstructuraCorreo(correo);
+
+        public bool validarEstructuraContrasenia(string password) => datUser.Instancia.validarEstructuraContrasenia(password);
+
         #endregion metodos
     }
 }

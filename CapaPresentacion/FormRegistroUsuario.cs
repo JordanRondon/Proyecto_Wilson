@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using CapaDatos;
 using CapaEntidad;
@@ -14,7 +15,7 @@ namespace CapaPresentacion
         List<EntRol> listarol = logUser.Instancia.ListarRoles();
         public FormRegistroUsuario()
         {
-            
+
             InitializeComponent();
             listarRoles();
             cmbRol.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -37,8 +38,8 @@ namespace CapaPresentacion
 
         private void btnDNI_Click(object sender, EventArgs e)
         {
-            
-            
+
+
         }
         private void listarRoles()
         {
@@ -47,10 +48,10 @@ namespace CapaPresentacion
                 cmbRol.Items.Add(rol.rolname);
             }
         }
-        
+
         private EntRol buscarRolPorNombre(string nombre)
         {
-            
+
             foreach (EntRol rol in listarol)
             {
                 if (rol.rolname == nombre)
@@ -93,6 +94,8 @@ namespace CapaPresentacion
                 txtPassword.Text = "";
                 txtPassword.ForeColor = Color.Silver;
                 txtPassword.UseSystemPasswordChar = true;
+                panelContainer.Location = new Point(307, 399);
+                panelParametros.Visible = true;
             }
         }
 
@@ -103,6 +106,8 @@ namespace CapaPresentacion
                 txtPassword.Text = "Password";
                 txtPassword.ForeColor = Color.Silver;
                 txtPassword.UseSystemPasswordChar = false;
+                panelContainer.Location = new Point(303, 266);
+                panelParametros.Visible = false;
             }
         }
         private void txtCONPassword_Enter(object sender, EventArgs e)
@@ -149,28 +154,33 @@ namespace CapaPresentacion
         {
             try
             {
-
                 if (txtUsername.Text != "" && txtPassword.Text != "" && txtPassword.Text != "" && txtDNI.Text.Length == 8)
                 {
                     if (logUser.Instancia.validarEstructuraCorreo(txtUsername.Text))
                     {
-                        if (txtPassword.Text == txtCONPassword.Text)
+                        if (logUser.Instancia.validarEstructuraContrasenia(txtPassword.Text))
                         {
-                            EntUsuario user = new EntUsuario();
+                            if (txtPassword.Text == txtCONPassword.Text)
+                            {
+                                EntUsuario user = new EntUsuario();
 
-                            user.username = txtUsername.Text;
-                            user.contrasenia = txtPassword.Text;
-                            user.dni = txtDNI.Text;
-                            user.rol = buscarRolPorNombre(cmbRol.Text).idrol;
-                            dynamic respuesta = apidni.Get("https://dniruc.apisperu.com/api/v1/dni/" + txtDNI.Text + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImtnYXJjaWFtaXJAZ21haWwuY29tIn0.DmnmjodKhFK8W0vDUGg6vHgpgqDK1Qa1hFJZ82k-SCo");
-                            user.apellido = respuesta.apellidoPaterno.ToString() + " " + respuesta.apellidoMaterno.ToString();
-                            user.telefono = txtNumberPhone.Text;
-                            user.nombres = respuesta.nombres;
-                            logUser.Instancia.registrarUsuario(user);
-                            MessageBox.Show("El usuario se registro correctamente.");
+                                user.username = txtUsername.Text;
+                                user.contrasenia = txtPassword.Text;
+                                user.dni = txtDNI.Text;
+                                user.rol = buscarRolPorNombre(cmbRol.Text).idrol;
+                                dynamic respuesta = apidni.Get("https://dniruc.apisperu.com/api/v1/dni/" + txtDNI.Text + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImtnYXJjaWFtaXJAZ21haWwuY29tIn0.DmnmjodKhFK8W0vDUGg6vHgpgqDK1Qa1hFJZ82k-SCo");
+                                user.apellido = respuesta.apellidoPaterno.ToString() + " " + respuesta.apellidoMaterno.ToString();
+                                user.telefono = txtNumberPhone.Text;
+                                user.nombres = respuesta.nombres;
+                                logUser.Instancia.registrarUsuario(user);
+                                MessageBox.Show("El usuario se registro correctamente.");
+                            }
+                            else
+                                MessageBox.Show("La contraseña no coincide");
                         }
                         else
-                            MessageBox.Show("La contraseña no coincide");
+                            MessageBox.Show("Estructura de contraseña no valida");
+
                     }
                     else
                         MessageBox.Show("Estructura de correo no valida");
@@ -226,6 +236,44 @@ namespace CapaPresentacion
                 string text = "DNI invalido.Ingrese otro DNI";
                 MessageBox.Show(text);
             }
+        }
+
+
+
+        private void txtPassword_KeyUp(object sender, KeyEventArgs e)
+        {
+            validarLongitud();
+            validarMayuscula();
+            validarMinuscula();
+            validarNumero();
+            validarCaracter();
+        }
+
+        private void validarLongitud()
+        {
+            pictureLength.Image = (txtPassword.Text.Length >= 8) ? Properties.Resources.check : Properties.Resources.x;
+
+        }
+
+        private void validarMayuscula()
+        {
+            pictureMayus.Image = (Regex.IsMatch(txtPassword.Text, @"[A-Z]")) ? Properties.Resources.check : Properties.Resources.x;
+
+        }
+
+        private void validarMinuscula()
+        {
+            pictureMinus.Image = (Regex.IsMatch(txtPassword.Text, @"[a-z]")) ? Properties.Resources.check : Properties.Resources.x;
+        }
+
+        private void validarNumero()
+        {
+            pictureNumber.Image = (Regex.IsMatch(txtPassword.Text, @"\d")) ? Properties.Resources.check : Properties.Resources.x;
+        }
+
+        private void validarCaracter()
+        {
+            pictureCharacter.Image = (Regex.IsMatch(txtPassword.Text, @"[!@#\$%&]")) ? Properties.Resources.check : Properties.Resources.x;
         }
     }
 }

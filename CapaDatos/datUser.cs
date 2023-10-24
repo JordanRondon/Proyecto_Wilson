@@ -203,6 +203,14 @@ namespace CapaDatos
             return Regex.IsMatch(correo, patron);
         }
 
+
+        public bool validarEstructuraContrasenia(string password)
+        {
+            string patron = @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\$%\^&]).{8,}$";
+            return Regex.IsMatch(password, @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\$%\^&]).{8,}$");
+
+        }
+
         #endregion metodos
     }
 }
