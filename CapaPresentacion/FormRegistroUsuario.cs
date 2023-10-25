@@ -12,10 +12,12 @@ namespace CapaPresentacion
     public partial class FormRegistroUsuario : Form
     {
         APIDNI apidni = new APIDNI();
+        private bool passwordVisible1 = false;
+        private bool passwordVisible = false;
+
         List<EntRol> listarol = logUser.Instancia.ListarRoles();
         public FormRegistroUsuario()
         {
-
             InitializeComponent();
             listarRoles();
             cmbRol.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -27,11 +29,6 @@ namespace CapaPresentacion
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -275,5 +272,41 @@ namespace CapaPresentacion
         {
             pictureCharacter.Image = (Regex.IsMatch(txtPassword.Text, @"[!@#\$%&*_-]")) ? Properties.Resources.check : Properties.Resources.x;
         }
+
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            if (passwordVisible1)
+            {
+                pictureBox8.Image = Properties.Resources.show;
+                txtPassword.UseSystemPasswordChar = true;
+            }
+            else
+            {
+                pictureBox8.Image = Properties.Resources.hide;
+                txtPassword.UseSystemPasswordChar = false;
+            }
+
+            passwordVisible1 = !passwordVisible1;
+        }
+
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            if (passwordVisible)
+            {
+                pictureBox9.Image = Properties.Resources.show;
+                txtCONPassword.UseSystemPasswordChar = true;
+            }
+            else
+            {
+                pictureBox9.Image = Properties.Resources.hide;
+                txtCONPassword.UseSystemPasswordChar = false;
+            }
+
+            passwordVisible = !passwordVisible;
+        }
+
+
     }
 }
