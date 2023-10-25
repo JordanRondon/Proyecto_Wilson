@@ -16,6 +16,8 @@ namespace CapaPresentacion
         public System.Drawing.Point MoveForm_MousePosition2;
         private int intentosRestantes = 5;
 
+        private bool passwordVisible = false;
+
         public FormLogin()
         {
             InitializeComponent();
@@ -122,7 +124,7 @@ namespace CapaPresentacion
                             logUser.Instancia.suspenderUsuario(user);
                             intentosRes.Text = $"Intentos restantes: 0";
                             DialogResult result = MessageBox.Show("Cuenta Suspendida\n¿Desea habilitar por correo?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                            intentosRes.Visible=false;
+                            intentosRes.Visible = false;
                             intentosRestantes = 5;
                             if (result == DialogResult.Yes)
                             {
@@ -140,8 +142,8 @@ namespace CapaPresentacion
                         AccesoPorCodigo codeAcces = new AccesoPorCodigo();
                         codeAcces.ShowDialog();
                     }
-                    
-                } 
+
+                }
             }
             catch (Exception ex)
             {
@@ -204,6 +206,22 @@ namespace CapaPresentacion
 
 
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (passwordVisible)
+            {
+                pictureBox1.Image = Properties.Resources.show;
+                txtPassword.UseSystemPasswordChar = true;
+            }
+            else
+            {
+                pictureBox1.Image = Properties.Resources.hide;
+                txtPassword.UseSystemPasswordChar = false;
+            }
+
+            passwordVisible = !passwordVisible;
         }
     }
 }

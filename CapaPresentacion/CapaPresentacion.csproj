@@ -394,11 +394,13 @@
     <None Include="Resources\LUPA.png" />
     <None Include="Resources\LUPA40px.png" />
     <None Include="Resources\LUPA35px.png" />
+    <None Include="Resources\hide.png" />
     <Content Include="Resources\ola.png" />
     <Content Include="Resources\padlock.png" />
     <None Include="Resources\producto.jpg" />
     <Content Include="Resources\profile.png" />
     <Content Include="Resources\ring-phone.png" />
+    <None Include="Resources\show.png" />
     <Content Include="Resources\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

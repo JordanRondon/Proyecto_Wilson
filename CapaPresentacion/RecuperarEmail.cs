@@ -1,20 +1,16 @@
 ﻿using CapaDatos;
 using System;
 using CapaLogica;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Interop;
 using Microsoft.VisualBasic;
 namespace CapaPresentacion
 {
     public partial class RecuperarEmail : Form
     {
+
+        private bool passwordVisible1 = false;
+        private bool passwordVisible = false;
         public RecuperarEmail()
         {
             InitializeComponent();
@@ -168,6 +164,38 @@ namespace CapaPresentacion
         private void RecuperarEmail_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (passwordVisible1)
+            {
+                pictureBox1.Image = Properties.Resources.show;
+                txt_contraseña.UseSystemPasswordChar = true;
+            }
+            else
+            {
+                pictureBox1.Image = Properties.Resources.hide;
+                txt_contraseña.UseSystemPasswordChar = false;
+            }
+
+            passwordVisible1 = !passwordVisible1;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (passwordVisible)
+            {
+                pictureBox2.Image = Properties.Resources.show;
+                txt_confirmacion.UseSystemPasswordChar = true;
+            }
+            else
+            {
+                pictureBox2.Image = Properties.Resources.hide;
+                txt_confirmacion.UseSystemPasswordChar = false;
+            }
+
+            passwordVisible = !passwordVisible;
         }
     }
 }
