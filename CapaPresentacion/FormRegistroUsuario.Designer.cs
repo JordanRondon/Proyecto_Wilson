@@ -48,6 +48,18 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnDNI = new System.Windows.Forms.Button();
+            this.pictureLength = new System.Windows.Forms.PictureBox();
+            this.pictureMayus = new System.Windows.Forms.PictureBox();
+            this.pictureMinus = new System.Windows.Forms.PictureBox();
+            this.panelParametros = new System.Windows.Forms.Panel();
+            this.pictureCharacter = new System.Windows.Forms.PictureBox();
+            this.pictureNumber = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelContainer = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -57,6 +69,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureLength)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMayus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMinus)).BeginInit();
+            this.panelParametros.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureCharacter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureNumber)).BeginInit();
+            this.panelContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -68,7 +87,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(282, 540);
+            this.panel1.Size = new System.Drawing.Size(282, 689);
             this.panel1.TabIndex = 10;
             // 
             // btnAtras
@@ -80,7 +99,7 @@
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAtras.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAtras.Location = new System.Drawing.Point(11, 494);
+            this.btnAtras.Location = new System.Drawing.Point(11, 643);
             this.btnAtras.Margin = new System.Windows.Forms.Padding(2);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(89, 35);
@@ -107,7 +126,7 @@
             this.logo.Image = global::CapaPresentacion.Properties.Resources.imgLogopng;
             this.logo.Location = new System.Drawing.Point(6, 133);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(276, 300);
+            this.logo.Size = new System.Drawing.Size(276, 449);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logo.TabIndex = 8;
             this.logo.TabStop = false;
@@ -121,7 +140,7 @@
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrar.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnRegistrar.Location = new System.Drawing.Point(349, 474);
+            this.btnRegistrar.Location = new System.Drawing.Point(46, 205);
             this.btnRegistrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(181, 55);
@@ -143,6 +162,7 @@
             this.txtPassword.Text = "Password";
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyUp);
             this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // txtUsername
@@ -165,7 +185,7 @@
             this.txtCONPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCONPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCONPassword.ForeColor = System.Drawing.Color.Silver;
-            this.txtCONPassword.Location = new System.Drawing.Point(347, 288);
+            this.txtCONPassword.Location = new System.Drawing.Point(46, 15);
             this.txtCONPassword.Name = "txtCONPassword";
             this.txtCONPassword.Size = new System.Drawing.Size(232, 20);
             this.txtCONPassword.TabIndex = 19;
@@ -176,7 +196,7 @@
             // cmbRol
             // 
             this.cmbRol.FormattingEnabled = true;
-            this.cmbRol.Location = new System.Drawing.Point(347, 432);
+            this.cmbRol.Location = new System.Drawing.Point(48, 157);
             this.cmbRol.Name = "cmbRol";
             this.cmbRol.Size = new System.Drawing.Size(213, 21);
             this.cmbRol.TabIndex = 25;
@@ -187,7 +207,7 @@
             this.txtDNI.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDNI.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDNI.ForeColor = System.Drawing.Color.Silver;
-            this.txtDNI.Location = new System.Drawing.Point(349, 335);
+            this.txtDNI.Location = new System.Drawing.Point(48, 59);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(165, 20);
             this.txtDNI.TabIndex = 30;
@@ -198,7 +218,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = global::CapaPresentacion.Properties.Resources.ring_phone;
-            this.pictureBox7.Location = new System.Drawing.Point(307, 378);
+            this.pictureBox7.Location = new System.Drawing.Point(8, 100);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(34, 35);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -208,7 +228,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::CapaPresentacion.Properties.Resources.id_card;
-            this.pictureBox6.Location = new System.Drawing.Point(307, 421);
+            this.pictureBox6.Location = new System.Drawing.Point(8, 146);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(34, 35);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -218,7 +238,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::CapaPresentacion.Properties.Resources.contact_96967;
-            this.pictureBox5.Location = new System.Drawing.Point(307, 328);
+            this.pictureBox5.Location = new System.Drawing.Point(6, 50);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(34, 35);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -231,7 +251,7 @@
             this.txtNumberPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNumberPhone.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumberPhone.ForeColor = System.Drawing.Color.Silver;
-            this.txtNumberPhone.Location = new System.Drawing.Point(347, 385);
+            this.txtNumberPhone.Location = new System.Drawing.Point(48, 107);
             this.txtNumberPhone.Name = "txtNumberPhone";
             this.txtNumberPhone.Size = new System.Drawing.Size(165, 20);
             this.txtNumberPhone.TabIndex = 31;
@@ -242,7 +262,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.padlock;
-            this.pictureBox1.Location = new System.Drawing.Point(307, 279);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(34, 35);
             this.pictureBox1.TabIndex = 20;
@@ -287,29 +307,161 @@
             this.btnDNI.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.btnDNI.ForeColor = System.Drawing.Color.White;
             this.btnDNI.Image = global::CapaPresentacion.Properties.Resources.LUPA35px;
-            this.btnDNI.Location = new System.Drawing.Point(520, 332);
+            this.btnDNI.Location = new System.Drawing.Point(219, 53);
             this.btnDNI.Name = "btnDNI";
             this.btnDNI.Size = new System.Drawing.Size(42, 35);
             this.btnDNI.TabIndex = 32;
             this.btnDNI.UseVisualStyleBackColor = false;
             this.btnDNI.Click += new System.EventHandler(this.btnDNI_Click_1);
             // 
+            // pictureLength
+            // 
+            this.pictureLength.Image = global::CapaPresentacion.Properties.Resources.x;
+            this.pictureLength.Location = new System.Drawing.Point(15, 8);
+            this.pictureLength.Name = "pictureLength";
+            this.pictureLength.Size = new System.Drawing.Size(19, 19);
+            this.pictureLength.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureLength.TabIndex = 33;
+            this.pictureLength.TabStop = false;
+            // 
+            // pictureMayus
+            // 
+            this.pictureMayus.Image = global::CapaPresentacion.Properties.Resources.x;
+            this.pictureMayus.Location = new System.Drawing.Point(15, 33);
+            this.pictureMayus.Name = "pictureMayus";
+            this.pictureMayus.Size = new System.Drawing.Size(19, 19);
+            this.pictureMayus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureMayus.TabIndex = 34;
+            this.pictureMayus.TabStop = false;
+            // 
+            // pictureMinus
+            // 
+            this.pictureMinus.Image = global::CapaPresentacion.Properties.Resources.x;
+            this.pictureMinus.Location = new System.Drawing.Point(15, 58);
+            this.pictureMinus.Name = "pictureMinus";
+            this.pictureMinus.Size = new System.Drawing.Size(19, 19);
+            this.pictureMinus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureMinus.TabIndex = 35;
+            this.pictureMinus.TabStop = false;
+            // 
+            // panelParametros
+            // 
+            this.panelParametros.Controls.Add(this.pictureCharacter);
+            this.panelParametros.Controls.Add(this.pictureNumber);
+            this.panelParametros.Controls.Add(this.label5);
+            this.panelParametros.Controls.Add(this.label4);
+            this.panelParametros.Controls.Add(this.label3);
+            this.panelParametros.Controls.Add(this.label2);
+            this.panelParametros.Controls.Add(this.label1);
+            this.panelParametros.Controls.Add(this.pictureLength);
+            this.panelParametros.Controls.Add(this.pictureMinus);
+            this.panelParametros.Controls.Add(this.pictureMayus);
+            this.panelParametros.Location = new System.Drawing.Point(307, 256);
+            this.panelParametros.Name = "panelParametros";
+            this.panelParametros.Size = new System.Drawing.Size(247, 136);
+            this.panelParametros.TabIndex = 36;
+            this.panelParametros.Visible = false;
+            // 
+            // pictureCharacter
+            // 
+            this.pictureCharacter.Image = global::CapaPresentacion.Properties.Resources.x;
+            this.pictureCharacter.Location = new System.Drawing.Point(15, 108);
+            this.pictureCharacter.Name = "pictureCharacter";
+            this.pictureCharacter.Size = new System.Drawing.Size(19, 19);
+            this.pictureCharacter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureCharacter.TabIndex = 38;
+            this.pictureCharacter.TabStop = false;
+            // 
+            // pictureNumber
+            // 
+            this.pictureNumber.Image = global::CapaPresentacion.Properties.Resources.x;
+            this.pictureNumber.Location = new System.Drawing.Point(15, 83);
+            this.pictureNumber.Name = "pictureNumber";
+            this.pictureNumber.Size = new System.Drawing.Size(19, 19);
+            this.pictureNumber.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureNumber.TabIndex = 37;
+            this.pictureNumber.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.Location = new System.Drawing.Point(36, 110);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(174, 13);
+            this.label5.TabIndex = 36;
+            this.label5.Text = "Caracter especiales: !@#$%&&";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(36, 86);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Número";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(36, 62);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 13);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "Letra Minúscula";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(36, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 13);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Letra Mayúscula";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(36, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(192, 13);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Longitud Minimo de 8 caracteres";
+            // 
+            // panelContainer
+            // 
+            this.panelContainer.Controls.Add(this.txtCONPassword);
+            this.panelContainer.Controls.Add(this.pictureBox1);
+            this.panelContainer.Controls.Add(this.btnRegistrar);
+            this.panelContainer.Controls.Add(this.cmbRol);
+            this.panelContainer.Controls.Add(this.pictureBox6);
+            this.panelContainer.Controls.Add(this.btnDNI);
+            this.panelContainer.Controls.Add(this.pictureBox7);
+            this.panelContainer.Controls.Add(this.pictureBox5);
+            this.panelContainer.Controls.Add(this.txtDNI);
+            this.panelContainer.Controls.Add(this.txtNumberPhone);
+            this.panelContainer.Location = new System.Drawing.Point(301, 261);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(279, 305);
+            this.panelContainer.TabIndex = 37;
+            // 
             // FormRegistroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(95)))));
-            this.ClientSize = new System.Drawing.Size(605, 540);
-            this.Controls.Add(this.btnDNI);
-            this.Controls.Add(this.cmbRol);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.btnRegistrar);
-            this.Controls.Add(this.txtDNI);
-            this.Controls.Add(this.txtNumberPhone);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.txtCONPassword);
+            this.ClientSize = new System.Drawing.Size(605, 689);
+            this.Controls.Add(this.panelContainer);
+            this.Controls.Add(this.panelParametros);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.txtPassword);
@@ -330,6 +482,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureLength)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMayus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMinus)).EndInit();
+            this.panelParametros.ResumeLayout(false);
+            this.panelParametros.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureCharacter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureNumber)).EndInit();
+            this.panelContainer.ResumeLayout(false);
+            this.panelContainer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,5 +517,17 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.TextBox txtNumberPhone;
         private System.Windows.Forms.Button btnDNI;
+        private System.Windows.Forms.PictureBox pictureLength;
+        private System.Windows.Forms.PictureBox pictureMayus;
+        private System.Windows.Forms.PictureBox pictureMinus;
+        private System.Windows.Forms.Panel panelParametros;
+        private System.Windows.Forms.PictureBox pictureCharacter;
+        private System.Windows.Forms.PictureBox pictureNumber;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panelContainer;
     }
 }
