@@ -191,7 +191,7 @@ namespace CapaPresentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("DNI invalido.Ingrese otro DNI");
+                MessageBox.Show(ex.Message);
             }
             //limpiarVariables();
         }
@@ -273,7 +273,7 @@ namespace CapaPresentacion
 
         private void validarCaracter()
         {
-            pictureCharacter.Image = (Regex.IsMatch(txtPassword.Text, @"[!@#\$%&]")) ? Properties.Resources.check : Properties.Resources.x;
+            pictureCharacter.Image = (Regex.IsMatch(txtPassword.Text, @"[!@#\$%&*_-]")) ? Properties.Resources.check : Properties.Resources.x;
         }
     }
 }

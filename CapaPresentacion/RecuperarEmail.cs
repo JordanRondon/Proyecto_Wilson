@@ -78,16 +78,24 @@ namespace CapaPresentacion
         {
             try
             {
-                if (txt_contraseña.Text==txt_confirmacion.Text)
+                if(datUser.Instancia.validarEstructuraContrasenia(txt_contraseña.Text))
                 {
-                    logUser.Instancia.cambiarcontraseña(txt_usuario.Text, txt_contraseña.Text);
-                    MessageBox.Show("La contraseña se cambio correctamente");
-                    Close();
+                    if (txt_contraseña.Text == txt_confirmacion.Text)
+                    {
+                        logUser.Instancia.cambiarcontraseña(txt_usuario.Text, txt_contraseña.Text);
+                        MessageBox.Show("La contraseña se cambio correctamente");
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("La contraseña no coincide con la confirmación");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("La contraseña no coincide con la confirmación");
+                    MessageBox.Show("Estructura de contraseña no valida");
                 }
+                
             }
             catch(Exception ex)
             {
