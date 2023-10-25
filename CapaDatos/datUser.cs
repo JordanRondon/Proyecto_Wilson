@@ -198,7 +198,6 @@ namespace CapaDatos
 
         public bool validarEstructuraCorreo(string correo)
         {
-            //string patron = @"^\w[a-zA-Z0-9._%+-]+\w+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             string patron = @"^[a-zA-Z0-9]+([._-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\.[a-zA-Z]{2,})+$";
             return Regex.IsMatch(correo, patron);
         }
@@ -206,9 +205,8 @@ namespace CapaDatos
 
         public bool validarEstructuraContrasenia(string password)
         {
-            string patron = @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\$%\^&]).{8,}$";
-            return Regex.IsMatch(password, @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\$%\^&]).{8,}$");
-
+            string patron = @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\$%&]).{8,}$";
+            return Regex.IsMatch(password, patron);
         }
 
         #endregion metodos
