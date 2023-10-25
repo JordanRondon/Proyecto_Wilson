@@ -111,6 +111,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoPorCodigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccesoPorCodigo.Designer.cs">
+      <DependentUpon>AccesoPorCodigo.cs</DependentUpon>
+    </Compile>
     <Compile Include="BDWILSONDataSet.cs">
       <DependentUpon>BDWILSONDataSet.xsd</DependentUpon>
     </Compile>
@@ -229,6 +235,9 @@
     <Compile Include="RecuperarEmail.Designer.cs">
       <DependentUpon>RecuperarEmail.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AccesoPorCodigo.resx">
+      <DependentUpon>AccesoPorCodigo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formAdministrador.resx">
       <DependentUpon>formAdministrador.cs</DependentUpon>
       <SubType>Designer</SubType>

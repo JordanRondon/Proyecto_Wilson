@@ -201,14 +201,93 @@ namespace CapaDatos
             string patron = @"^[a-zA-Z0-9]+([._-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\.[a-zA-Z]{2,})+$";
             return Regex.IsMatch(correo, patron);
         }
+      
+        public Boolean suspenderUsuario(EntUsuario user)
+        {
 
+            SqlCommand cmd = null;
+            Boolean inserta = false;
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+                cmd = new SqlCommand("pa_suspender_usuario", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@user", user.username);
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    inserta = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return inserta;
+        }
+        public Boolean habilitarUsuario(EntUsuario user)
+        {
+            SqlCommand cmd = null;
+            Boolean inserta = false;
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+                cmd = new SqlCommand("pa_habilitar_usuario", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@user", user.username);
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    inserta = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return inserta;
+        }
+        public Boolean verificarEstadoUsuario(String usuario)
+        {
+            SqlCommand cmd = null;
+            bool validacion = false;
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+                cmd = new SqlCommand("buscarUser", cn);
+                cmd.Parameters.AddWithValue("@user", usuario);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                EntUsuario user = new EntUsuario();
+                user.username = dr["username"].ToString();
+                user.estado = Convert.ToInt32(dr["estado"]);
+                if (user.estado==1)
+                {
+                    validacion = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return validacion;
+        }
 
         public bool validarEstructuraContrasenia(string password)
         {
             string patron = @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\$%&]).{8,}$";
             return Regex.IsMatch(password, patron);
         }
-
         #endregion metodos
     }
 }

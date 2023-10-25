@@ -62,6 +62,9 @@
             // btn_enviar
             // 
             this.btn_enviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(163)))), ((int)(((byte)(7)))));
+            this.btn_enviar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_enviar.FlatAppearance.BorderSize = 0;
+            this.btn_enviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_enviar.ForeColor = System.Drawing.Color.White;
             this.btn_enviar.Location = new System.Drawing.Point(305, 49);
             this.btn_enviar.Name = "btn_enviar";
@@ -130,6 +133,9 @@
             // btn_cambiar
             // 
             this.btn_cambiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(163)))), ((int)(((byte)(7)))));
+            this.btn_cambiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_cambiar.FlatAppearance.BorderSize = 0;
+            this.btn_cambiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cambiar.ForeColor = System.Drawing.Color.White;
             this.btn_cambiar.Location = new System.Drawing.Point(305, 109);
             this.btn_cambiar.Name = "btn_cambiar";
@@ -155,7 +161,9 @@
             this.Controls.Add(this.contraseñalabel);
             this.Controls.Add(this.label1);
             this.Name = "RecuperarEmail";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RecuperarEmail";
+            this.Load += new System.EventHandler(this.RecuperarEmail_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
