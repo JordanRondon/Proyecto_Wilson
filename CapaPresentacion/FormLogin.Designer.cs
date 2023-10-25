@@ -41,14 +41,15 @@ namespace CapaPresentacion
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.intentosRes = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -114,6 +115,17 @@ namespace CapaPresentacion
             this.lbTitulo.TabIndex = 9;
             this.lbTitulo.Text = "BIENVENIDO";
             // 
+            // logo
+            // 
+            this.logo.BackColor = System.Drawing.Color.Transparent;
+            this.logo.Image = global::CapaPresentacion.Properties.Resources.imgLogopng;
+            this.logo.Location = new System.Drawing.Point(3, 77);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(276, 281);
+            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logo.TabIndex = 8;
+            this.logo.TabStop = false;
+            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(163)))), ((int)(((byte)(7)))));
@@ -126,17 +138,6 @@ namespace CapaPresentacion
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // logo
-            // 
-            this.logo.BackColor = System.Drawing.Color.Transparent;
-            this.logo.Image = global::CapaPresentacion.Properties.Resources.imgLogopng;
-            this.logo.Location = new System.Drawing.Point(3, 77);
-            this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(276, 281);
-            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logo.TabIndex = 8;
-            this.logo.TabStop = false;
             // 
             // btnMinimizar
             // 
@@ -202,12 +203,23 @@ namespace CapaPresentacion
             this.linkLabel1.Text = "Has Olvidado tu Contraseña?";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // intentosRes
+            // 
+            this.intentosRes.AutoSize = true;
+            this.intentosRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.intentosRes.ForeColor = System.Drawing.Color.Red;
+            this.intentosRes.Location = new System.Drawing.Point(309, 156);
+            this.intentosRes.Name = "intentosRes";
+            this.intentosRes.Size = new System.Drawing.Size(0, 16);
+            this.intentosRes.TabIndex = 13;
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(95)))));
             this.ClientSize = new System.Drawing.Size(613, 390);
+            this.Controls.Add(this.intentosRes);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.panel1);
@@ -254,5 +266,6 @@ namespace CapaPresentacion
         private Label lbTitulo;
         private Button btnLogin;
         private LinkLabel linkLabel1;
+        private Label intentosRes;
     }
 }

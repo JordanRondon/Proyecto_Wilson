@@ -16,5 +16,6 @@ namespace CapaEntidad
         public string telefono { get; set; }
         public string nombres { get; set; }
         public int rol { get; set; }
+        public int estado { get; set; }
     }
 }

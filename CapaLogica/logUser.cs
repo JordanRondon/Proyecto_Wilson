@@ -46,6 +46,18 @@ namespace CapaLogica
         {
             return datUser.Instancia.ListarRoles();
         }
+        public void suspenderUsuario(EntUsuario user)
+        {
+            datUser.Instancia.suspenderUsuario(user);
+        }
+        public void habilitarUsuario(EntUsuario user)
+        {
+            datUser.Instancia.habilitarUsuario(user);
+        }
+        public bool verificarEstadoUsuario(String username)
+        {
+            return datUser.Instancia.verificarEstadoUsuario(username);
+        }
         public bool validarEstructuraCorreo(string correo) => datUser.Instancia.validarEstructuraCorreo(correo);
         #endregion metodos
     }

@@ -118,8 +118,10 @@ namespace CapaPresentacion
         {
             if (txt_contraseña.Text == "Contraseña")
             {
+                txt_contraseña.UseSystemPasswordChar = true;
                 txt_contraseña.Text = "";
                 txt_contraseña.ForeColor = Color.Silver;
+
             }
         }
 
@@ -127,6 +129,7 @@ namespace CapaPresentacion
         {
             if (txt_contraseña.Text == "")
             {
+                txt_contraseña.UseSystemPasswordChar = false;
                 txt_contraseña.ForeColor = Color.Silver;
                 txt_contraseña.Text = "Contraseña";
                 
@@ -137,6 +140,7 @@ namespace CapaPresentacion
         {
             if (txt_confirmacion.Text == "Confirmación Contraseña")
             {
+                txt_confirmacion.UseSystemPasswordChar = true;
                 txt_confirmacion.Text = "";
                 txt_confirmacion.ForeColor = Color.Silver;
             }
@@ -146,10 +150,16 @@ namespace CapaPresentacion
         {
             if (txt_confirmacion.Text == "")
             {
+                txt_confirmacion.UseSystemPasswordChar = false;
                 txt_confirmacion.ForeColor = Color.Silver;
                 txt_confirmacion.Text = "Confirmación Contraseña";
 
             }
+        }
+
+        private void RecuperarEmail_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

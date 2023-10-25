@@ -14,6 +14,8 @@ namespace CapaPresentacion
     {
         public System.Drawing.Point MoveForm_MousePosition;
         public System.Drawing.Point MoveForm_MousePosition2;
+        private int intentosRestantes = 5;
+
         public FormLogin()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace CapaPresentacion
 
         private void txtUsername_Enter(object sender, EventArgs e)
         {
-            if(txtUsername.Text == "Username")
+            if (txtUsername.Text == "Username")
             {
                 txtUsername.Text = "";
                 txtUsername.ForeColor = Color.Silver;
@@ -33,11 +35,11 @@ namespace CapaPresentacion
 
         private void txtUsername_Leave(object sender, EventArgs e)
         {
-            if(txtUsername.Text == "")
+            if (txtUsername.Text == "")
             {
                 txtUsername.ForeColor = Color.Silver;
                 txtUsername.Text = "Username";
-            }   
+            }
         }
 
         private void txtPassword_Enter(object sender, EventArgs e)
@@ -63,14 +65,14 @@ namespace CapaPresentacion
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Close();
-            
+
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-        
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -79,32 +81,67 @@ namespace CapaPresentacion
                 user.username = this.txtUsername.Text.Trim();
                 user.contrasenia = this.txtPassword.Text.Trim();
 
-                if (logUser.Instancia.validarEstructuraCorreo(user.username) && logUser.Instancia.validarContrasenia(user.username, user.contrasenia) )
+                if (logUser.Instancia.verificarEstadoUsuario(user.username))
                 {
-                    switch (logUser.Instancia.obtenerrol(user.username))
+                    if (logUser.Instancia.validarContrasenia(user.username, user.contrasenia))
                     {
-                        case 1:
-                            this.Hide();
-                            formAdministrador paneladmin = new formAdministrador();
-                            paneladmin.ShowDialog();
-                            Close();
-                            break;
-                        case 2:
-                        case 3:
-                            this.Hide();
-                            FormCocinero panelCocinero = new FormCocinero();
-                            panelCocinero.ShowDialog();
-                            break;
-                        case 4:
-                            this.Hide();
-                            formCajero panelcajero = new formCajero();
-                            panelcajero.ShowDialog();
-                            Close();
-                            break;
-                        default:
-                            break;
+                        switch (logUser.Instancia.obtenerrol(user.username))
+                        {
+                            case 1:
+                                this.Hide();
+                                formAdministrador paneladmin = new formAdministrador();
+                                paneladmin.ShowDialog();
+                                Close();
+                                break;
+                            case 2:
+                            case 3:
+                                this.Hide();
+                                FormCocinero panelCocinero = new FormCocinero();
+                                panelCocinero.ShowDialog();
+                                break;
+                            case 4:
+                                this.Hide();
+                                formCajero panelcajero = new formCajero();
+                                panelcajero.ShowDialog();
+                                Close();
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        if (intentosRestantes > 0)
+                        {
+                            intentosRes.Visible = true;
+                            intentosRes.Text = $"Intentos restantes: {intentosRestantes}";
+                            intentosRestantes--;
+                        }
+                        else
+                        {
+                            logUser.Instancia.suspenderUsuario(user);
+                            intentosRes.Text = $"Intentos restantes: 0";
+                            DialogResult result = MessageBox.Show("Cuenta Suspendida\n¿Desea habilitar por correo?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                            intentosRes.Visible=false;
+                            intentosRestantes = 5;
+                            if (result == DialogResult.Yes)
+                            {
+                                AccesoPorCodigo codeAcces = new AccesoPorCodigo();
+                                codeAcces.ShowDialog();
+                            }
+                        }
                     }
                 }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Cuenta Suspendida\n¿Desea habilitar por correo?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    if (result == DialogResult.Yes)
+                    {
+                        AccesoPorCodigo codeAcces = new AccesoPorCodigo();
+                        codeAcces.ShowDialog();
+                    }
+                    
+                } 
             }
             catch (Exception ex)
             {
@@ -119,7 +156,7 @@ namespace CapaPresentacion
 
         private void FormLogin_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
 
                 e.Handled = true;
@@ -157,14 +194,14 @@ namespace CapaPresentacion
             }
         }
 
-        
+
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+
             RecuperarEmail interfazrecuperar = new RecuperarEmail();
             interfazrecuperar.ShowDialog();
-            
+
 
 
         }
