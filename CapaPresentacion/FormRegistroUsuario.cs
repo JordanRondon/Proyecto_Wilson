@@ -21,6 +21,7 @@ namespace CapaPresentacion
             InitializeComponent();
             listarRoles();
             cmbRol.DropDownStyle = ComboBoxStyle.DropDownList;
+            lbMensajeErrorCorreo.Visible = false;
         }
 
         private void FormRegistroUsuario_Load(object sender, EventArgs e)
@@ -307,6 +308,16 @@ namespace CapaPresentacion
             passwordVisible = !passwordVisible;
         }
 
-
+        private void txtUsername_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!datUser.Instancia.validarEstructuraCorreo(txtUsername.Text))
+            {
+                lbMensajeErrorCorreo.Visible = true;
+            }
+            else
+            {
+                lbMensajeErrorCorreo.Visible = false;
+            }
+        }
     }
 }

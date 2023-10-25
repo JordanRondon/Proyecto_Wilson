@@ -51,6 +51,7 @@ namespace CapaPresentacion
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.intentosRes = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbMensajeErrorCorreo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -74,6 +75,7 @@ namespace CapaPresentacion
             this.txtUsername.Text = "Username";
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
+            this.txtUsername.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyUp);
             this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
             // txtPassword
@@ -226,12 +228,24 @@ namespace CapaPresentacion
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // lbMensajeErrorCorreo
+            // 
+            this.lbMensajeErrorCorreo.AutoSize = true;
+            this.lbMensajeErrorCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMensajeErrorCorreo.ForeColor = System.Drawing.Color.DarkRed;
+            this.lbMensajeErrorCorreo.Location = new System.Drawing.Point(350, 202);
+            this.lbMensajeErrorCorreo.Name = "lbMensajeErrorCorreo";
+            this.lbMensajeErrorCorreo.Size = new System.Drawing.Size(184, 15);
+            this.lbMensajeErrorCorreo.TabIndex = 15;
+            this.lbMensajeErrorCorreo.Text = "Estructura de Correo Incorrecto *";
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(95)))));
             this.ClientSize = new System.Drawing.Size(613, 390);
+            this.Controls.Add(this.lbMensajeErrorCorreo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.intentosRes);
             this.Controls.Add(this.linkLabel1);
@@ -283,5 +297,6 @@ namespace CapaPresentacion
         private LinkLabel linkLabel1;
         private Label intentosRes;
         private PictureBox pictureBox1;
+        private Label lbMensajeErrorCorreo;
     }
 }
