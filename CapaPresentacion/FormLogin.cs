@@ -24,6 +24,7 @@ namespace CapaPresentacion
             panel1.Controls.Add(logo);
             logo.Location = new Point(2, 62);
             logo.BackColor = Color.Transparent;
+            lbMensajeErrorCorreo.Visible = false;
         }
 
         private void txtUsername_Enter(object sender, EventArgs e)
@@ -222,6 +223,18 @@ namespace CapaPresentacion
             }
 
             passwordVisible = !passwordVisible;
+        }
+
+        private void txtUsername_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!datUser.Instancia.validarEstructuraCorreo(txtUsername.Text))
+            {
+                lbMensajeErrorCorreo.Visible = true;
+            }
+            else
+            {
+                lbMensajeErrorCorreo.Visible = false;
+            }
         }
     }
 }
